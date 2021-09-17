@@ -13,14 +13,14 @@
 #
 require "action_view"
 class Cat < ApplicationRecord
-    include "Action_View::Helpers::Date_Helper"
+    include ActionView::Helpers::DateHelper
     validates :birth_date, :name, :description, presence: true
-    validates :sex, presence: true, inclusion: { in: %w(M F), message: "%{value} is not a valid sex"}
-    COLOR = ["black", "brown", "tabby", "white", "tuxedo"]
-    validates :color, presence:true, inclusion: {in: %w(COLOR), message: "%{value} is not a valid color"}
+    validates :sex, presence: true, inclusion: { in: %w(M F)}
+    COLOR = %w(black brown tabby white tuxedo)
+    validates :color, presence: true, inclusion: {in: COLOR}
 
     def age
-        distance_of_time_in_words_to_now(self.birth_date)
+        time_ago_in_words(self.birth_date)
     end
 
 

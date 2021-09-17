@@ -1,0 +1,14 @@
+
+    <ul>
+        <li>Name:  <%=cat.name %> </li>
+        <li>Age: <%=cat.age %> old </li>
+        <li>Sex:  <%=cat.sex %> </li>
+        <li>BirthDate: <%=cat.birth_date %></li>
+        <li>Description: <%=cat.description %> </li>
+        <% if action == :show %>
+            <li><a href="<%=cats_url%>">All Cats Page</a></li>
+        <% else %>
+            <li><a href="<%=cat_url(cat)%>"> <%=cat.name %>'s Page</a></li>
+        <% end %>
+
+     </ul>
