@@ -20,7 +20,7 @@ class Cat < ApplicationRecord
     validates :color, presence:true, inclusion: {in: %w(COLOR), message: "%{value} is not a valid color"}
 
     def age
-        time_ago_in_words(self.birth_date - Time.now)
+        distance_of_time_in_words_to_now(self.birth_date)
     end
 
 
